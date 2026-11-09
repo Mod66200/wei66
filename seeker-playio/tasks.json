@@ -1,0 +1,53 @@
+{
+  "_說明": "按鈕文字是範例，請先跑 probe 看實際文字再改。enabled=false 的任務不會執行。",
+  "package": "",
+  "step_delay": 1.5,
+  "block_words": ["兌換", "付款", "支付", "扣點", "綁定", "綁卡", "信用卡", "購買", "結帳", "儲值", "轉帳", "簽署", "授權", "Approve", "Sign", "Pay", "Buy"],
+  "tasks": [
+    {
+      "name": "開啟 Playio",
+      "steps": [
+        { "do": "launch" },
+        { "do": "wait", "sec": 6 },
+        { "do": "tap_text", "text": "略過", "optional": true, "timeout": 3 },
+        { "do": "tap_text", "text": "關閉", "optional": true, "timeout": 3 },
+        { "do": "tap_text", "text": "Playio", "timeout": 15 },
+        { "do": "wait", "sec": 4 }
+      ]
+    },
+    {
+      "name": "每日簽到",
+      "steps": [
+        { "do": "tap_text", "text": "簽到", "timeout": 10 },
+        { "do": "wait", "sec": 2 },
+        { "do": "tap_text", "text": "確定", "optional": true, "timeout": 4 },
+        { "do": "screenshot" }
+      ]
+    },
+    {
+      "name": "遊戲任務（範例）",
+      "enabled": false,
+      "repeat": 1,
+      "steps": [
+        { "do": "tap_text", "text": "去完成", "timeout": 10 },
+        { "do": "wait", "sec": 5 },
+        { "do": "tap_xy", "x": 540, "y": 1600 },
+        { "do": "wait", "sec": 35 },
+        { "do": "back" },
+        { "do": "tap_text", "text": "領取", "optional": true, "timeout": 5 }
+      ]
+    },
+    {
+      "name": "看廣告任務（範例）",
+      "enabled": false,
+      "repeat": 3,
+      "steps": [
+        { "do": "tap_text", "text": "看廣告", "timeout": 10 },
+        { "do": "wait", "sec": 35 },
+        { "do": "tap_text", "regex": "^(關閉|×|X|跳過)$", "optional": true, "timeout": 5 },
+        { "do": "back", "times": 1 },
+        { "do": "tap_text", "text": "領取", "optional": true, "timeout": 5 }
+      ]
+    }
+  ]
+}
